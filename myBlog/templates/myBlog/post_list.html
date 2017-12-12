@@ -3,6 +3,16 @@
 <title> Stories Of The Wildflower </title>
 </head>
 <body>
-<h1><center>Stories Of The Wildflower</center></h1>
+    <div>
+        <h1><center><a href="/">Stories Of The Wildflower</a></center></h1>
+    </div>
+
+    {% for post in posts %}
+        <div>
+            <p align = right> Published : {{post.published_date}} </p>
+            <h3><a href="">{{post.title}}</a></h3>
+            <p align = center><font face="monotype corsiva"> {{post.text|linebreaksbr}}</font></p>    
+        </div>
+    {% endfor %}
 </body>
 </html>
