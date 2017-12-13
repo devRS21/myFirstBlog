@@ -1,18 +1,12 @@
-<html>
-<head>
-<title> Stories Of The Wildflower </title>
-</head>
-<body>
-    <div>
-        <h1><center><a href="/">Stories Of The Wildflower</a></center></h1>
-    </div>
+{% extends 'myBlog/base.html' %}
 
-    {% for post in posts %}
-        <div>
-            <p align = right> Published : {{post.published_date}} </p>
-            <h3><a href="">{{post.title}}</a></h3>
-            <p align = center><font face="monotype corsiva"> {{post.text|linebreaksbr}}</font></p>    
-        </div>
-    {% endfor %}
-</body>
-</html>
+{% for post in posts %}
+    <div class="post">
+    <div class="date">
+        <p>published: {{ post.published_date }}</p>
+    </div>
+    <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>    
+    <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+ {% endfor %}
+            
